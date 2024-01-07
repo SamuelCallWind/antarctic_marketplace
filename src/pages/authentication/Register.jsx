@@ -19,14 +19,18 @@ const validationSchema=Yup.object({firstName: Yup.string()
     .required("A password is required"),
 });
 
-const handleChange = (data) => {
-    return data;
-}
+
 
 const Register = () => {
     const [formValue, setFormValue]=useState();
+    const [gender, setGender]=useState('');
+
+    const handleChange = (event) => {
+        setGender(event.target.value);
+    }
 
     const handleSubmit = (values) => {
+        values.gender = gender;
         console.log("handle submit", values);
     }
 
@@ -106,11 +110,13 @@ const Register = () => {
             <div className='space-y-5'>
                 <div>
                     <FormLabel id="gender">
-                        gender
+                        Gender
                         <RadioGroup
                         aria-label="gender"
                         name="gender"
                         onChange={handleChange}
+                        required
+                        row
                         >
                         <FormControlLabel value="female" control={<Radio />} label="Female" />
                         <FormControlLabel value="male" control={<Radio />} label="Male" />

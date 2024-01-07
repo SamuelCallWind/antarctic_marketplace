@@ -5,7 +5,7 @@ import Register from './pages/authentication/Register';
 
 function App() {
   return (
-    <div className="">
+    <div style={{border: "solid red 2px"}}>
       <Authentication/>
     </div>
   );
