@@ -3,6 +3,7 @@ import wallpaperPinguins from '../../img/background_authentication.png';
 import Login from './Login';
 import React from 'react';
 import Register from './Register';
+import { Route, Routes } from 'react-router-dom';
 
 
 const Authentication = () => {
@@ -27,9 +28,12 @@ const Authentication = () => {
                                 <h1 className='loginTitle'>Antarctic Social</h1>
                                 <p className='text-center mb-5'>Connect with others and share your story. The iceberg is waiting for you!</p>
                                 
-                                <Register>
+<Routes>
+    <Route path='/' element={<Login />}></Route>  
+    <Route path='/login' element={<Login />}></Route>
+    <Route path='/register' element={<Register />}></Route>
+</Routes>
 
-                                </Register>
                             </div>
 
                         </Card>
