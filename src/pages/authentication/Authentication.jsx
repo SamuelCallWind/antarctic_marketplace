@@ -4,6 +4,11 @@ import Login from './Login';
 import React from 'react';
 import Register from './Register';
 import { Route, Routes } from 'react-router-dom';
+import MiddleContent from '../components/middleContent/MiddleContent';
+import Reels from "../components/reels/Reels";
+import CreateReelsForm from '../components/reels/CreateReelsForm';
+import Profile from '../profile/Profile';
+import Messages from '../message/Message';
 
 
 const Authentication = () => {
