@@ -1,9 +1,17 @@
 import React from "react";
 import { navigationMenu } from "./SidebarNavigation";
-import { Avatar, Divider } from "@mui/material";
-import avatarSam from '../../../img/avatar_sam_callwind.png'
+import { Avatar, Button, Divider, Menu, MenuItem } from "@mui/material";
+import avatarSam from '../../../img/avatar_sam_callwind.png';
 
 const Sidebar = () => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    }
     return (
         <div className="card h-screen
          text-black
@@ -32,9 +40,36 @@ const Sidebar = () => {
                     <div className="flex items-center space-x-3">
                         <Avatar src={avatarSam}></Avatar>
                         <div>
-                            <p>This is a test</p>
-                            <p>another test</p>
+                            <p className="font-bold">Samuel CallWind</p>
+                            <p>@samcallwind</p>
                         </div>
+
+                    </div>
+                    <div>
+                        <Button
+                        aria-controls={open ? 'demo-positioned-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}>...</Button>
+                        
+                        <Menu
+                        id="threeDotsParameters"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: "top",
+                            horizontal: "left"
+                        }}
+                        transformOrigin={{
+                            vertical: "left",
+                            horizontal: "top"
+                        }}
+                        >
+                            <MenuItem onclick={handleClick}>Profile</MenuItem>
+                            <MenuItem onclick={handleClick}>My Account</MenuItem>
+                            <MenuItem onclick={handleClick}>Logout</MenuItem>
+                        </Menu>
                     </div>
                 </div>
             </div>
