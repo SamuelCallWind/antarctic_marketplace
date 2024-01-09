@@ -3,11 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TextField, Button } from '@mui/material';
 import * as Yup from 'yup';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import MiddleContent from '../components/middleContent/MiddleContent';
-import Reels from "../components/reels/Reels";
-import CreateReelsForm from '../components/reels/CreateReelsForm';
-import Profile from '../profile/Profile';
-import Messages from '../message/Message';
+
 
 
 const initialValues={email: "", password: ""};
@@ -85,13 +81,6 @@ const Login = () => {
             <p>Don't have an account yet?</p>
             <Button onClick={() => navigate("/register")}>Register</Button>
         </div>
-        <Routes>
-            <Route path="/" element={<MiddleContent />}></Route>
-            <Route path="/reels" element={<Reels />}></Route>
-            <Route path="/createReelsForm" element={<CreateReelsForm />}></Route>
-            <Route path="/profile/:id" element={<Profile />}></Route>
-            <Route path="/messages" element={<Messages />}></Route>
-        </Routes>
     </div>
     )
 }

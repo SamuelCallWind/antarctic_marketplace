@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../components/sideBar/sidebar";
+import Sidebar from "../components/sideBar/Sidebar";
 import { Grid } from "@mui/material";
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import Messages from "../message/Message";
@@ -7,6 +7,7 @@ import CreateReelsForm from "../components/reels/CreateReelsForm";
 import Reels from "../components/reels/Reels";
 import MiddleContent from "../components/middleContent/MiddleContent";
 import Profile from "../profile/Profile";
+import HomeRight from "../components/homeRight/homeRight";
 
 
 
@@ -15,7 +16,7 @@ const Home = () => {
 
     return (
         <div className="px-20">
-            <Grid container spacing={0}>
+            <Grid container spacing={0} className="">
 
                 <Grid item xs={0} lg={3}>
                     <div className="sticky top-0">
@@ -36,8 +37,10 @@ const Home = () => {
                     </Routes>
 
                 </Grid>
-                <Grid item xs={0} lg={3}>
-                    {/* to implement */}
+                <Grid item xs={0} lg={3} className="relative">
+                    <div className="sticky top-0 w-full">
+                        <HomeRight />
+                    </div>
                 </Grid>
             </Grid>
         </div>
