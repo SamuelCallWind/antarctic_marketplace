@@ -1,7 +1,9 @@
 import React from "react";
 import { navigationMenu } from "./SidebarNavigation";
-import { Avatar, Button, Divider, Menu, MenuItem } from "@mui/material";
+import { Avatar, Button, Card, Divider, Menu, MenuItem } from "@mui/material";
 import avatarSam from '../../../img/avatar_sam_callwind.png';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 
 const Sidebar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -13,7 +15,7 @@ const Sidebar = () => {
         setAnchorEl(null);
     }
     return (
-        <div className="card h-screen
+        <Card className="card h-screen
          text-black
          flex 
          flex-col 
@@ -27,7 +29,7 @@ const Sidebar = () => {
                 </div>
 
                 <div className="space-y-8">
-{navigationMenu.map((item) => <div className="cursor-pointer flex flex-row items-center">
+{navigationMenu.map((item, index) => <div key={index} className="cursor-pointer flex flex-row items-center">
     {item.icon}
     <p className="text-xl ml-2">{item.name}</p>
 </div>)}
@@ -47,10 +49,12 @@ const Sidebar = () => {
                     </div>
                     <div>
                         <Button
-                        aria-controls={open ? 'demo-positioned-menu' : undefined}
+                        aria-controls={open ? 'threeDotsParameters' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}>...</Button>
+                        onClick={handleClick}>
+                            <MoreVertIcon/>
+                        </Button>
                         
                         <Menu
                         id="threeDotsParameters"
@@ -62,18 +66,18 @@ const Sidebar = () => {
                             horizontal: "left"
                         }}
                         transformOrigin={{
-                            vertical: "left",
-                            horizontal: "top"
+                            vertical: "top",
+                            horizontal: "left"
                         }}
                         >
-                            <MenuItem onclick={handleClick}>Profile</MenuItem>
-                            <MenuItem onclick={handleClick}>My Account</MenuItem>
-                            <MenuItem onclick={handleClick}>Logout</MenuItem>
+                            <MenuItem onClick={handleClick}>Profile</MenuItem>
+                            <MenuItem onClick={handleClick}>My Account</MenuItem>
+                            <MenuItem onClick={handleClick}>Logout</MenuItem>
                         </Menu>
                     </div>
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 
