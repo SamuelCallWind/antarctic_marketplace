@@ -8,7 +8,8 @@ import StoryCircle from "./StoryCircle";
 import PostCard from "../postCard/PostCard";
 
 const MiddleContent = () => {
-    const story = [11, 1, 1, 1, 1];
+    const story = [1, 2, 3, 4, 5];
+    const postCards = [1, 2, 3, 4, 5];
     const handleOpenCreatePostModal = () => {
         console.log('open post modal');
     }
@@ -23,7 +24,7 @@ const MiddleContent = () => {
                             </Avatar>
                             <p>New</p>                    
                     </div>
-{story.map(item => <StoryCircle/>)}
+{story.map(item => <StoryCircle key={story.indexOf(item)}/>)}
                     </Stack>  
                 </Card>
             </section>
@@ -65,10 +66,8 @@ const MiddleContent = () => {
                     
                 </div>
             </section>
-            <section className="mt-5 w-full">
-                <PostCard>
-                    
-                </PostCard>
+            <section className="mt-5 w-full space-y-5">
+{postCards.map((element) => <PostCard key={postCards.indexOf(element)}/>)}
             </section>
         </div>
                 

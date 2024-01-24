@@ -1,6 +1,9 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import ShareIcon from '@mui/icons-material/Share';
 import CommentIcon from '@mui/icons-material/Comment';
 import React from "react";
@@ -33,15 +36,27 @@ const PostCard = () => {
                     This is my post about some penguins looking at the camera
                 </Typography>
             </CardContent>
-            <IconButton aria-label="add-to-favorites">
-                <FavoriteIcon/>
-            </IconButton>
-            <IconButton aria-label="share">
-                <ShareIcon/>
-            </IconButton>
-            <IconButton aria-label="comments">
-                <CommentIcon/>
-            </IconButton>
+            <div className="flex justify-between">
+            <div>
+                    <IconButton aria-label="add-to-favorites">
+{true ? <FavoriteIcon/> : <FavoriteBorderIcon/>}
+                    </IconButton>
+                    <IconButton aria-label="share">
+                    <ShareIcon/>
+                    </IconButton>
+                    <IconButton aria-label="comments">
+                        <CommentIcon/>
+                    </IconButton>
+                </div>
+                <div>
+                    <IconButton className=" self-end">
+{true ? <BookmarkIcon/> : <BookmarkBorderIcon/>}
+
+                    </IconButton>
+                </div>
+            </div>
+            
+            
         </Card>
         
     )
