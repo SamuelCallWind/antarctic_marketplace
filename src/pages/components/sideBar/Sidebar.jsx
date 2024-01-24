@@ -21,7 +21,7 @@ const Sidebar = () => {
          flex-col 
          justify-between 
          py-5">
-            <div className="space-y-8 pl-5">
+            <div className="space-y-8 pl-5 ">
                 <div className="">
 
                     <span className="logo font-bold">Antarctic Social</span>
@@ -39,7 +39,7 @@ const Sidebar = () => {
             <div>
                 <Divider/>
                 <div className=" mt-2 flex justify-between items-center">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 ml-2">
                         <Avatar src={avatarSam}></Avatar>
                         <div>
                             <p className="font-bold">Samuel CallWind</p>

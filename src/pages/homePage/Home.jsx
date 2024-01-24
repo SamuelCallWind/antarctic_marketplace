@@ -16,7 +16,7 @@ const Home = () => {
 
     return (
         <div className="px-20">
-            <Grid container spacing={0} className="">
+            <Grid container spacing={0}>
 
                 <Grid item xs={0} lg={3}>
                     <div className="sticky top-0">
