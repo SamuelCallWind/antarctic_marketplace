@@ -5,6 +5,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import AddIcon from '@mui/icons-material/Add';
 import React from "react";
 import StoryCircle from "./StoryCircle";
+import PostCard from "../postCard/PostCard";
 
 const MiddleContent = () => {
     const story = [11, 1, 1, 1, 1];
@@ -64,7 +65,11 @@ const MiddleContent = () => {
                     
                 </div>
             </section>
-            
+            <section className="mt-5 w-full">
+                <PostCard>
+                    
+                </PostCard>
+            </section>
         </div>
                 
     )
