@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../components/sideBar/Sidebar";
 import { Grid } from "@mui/material";
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Messages from "../message/Message";
 import CreateReelsForm from "../components/reels/CreateReelsForm";
 import Reels from "../components/reels/Reels";
