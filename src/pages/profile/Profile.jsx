@@ -2,19 +2,28 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import mountainImage from '../../img/mountain_landscape.jpg';
 import avatarImage from '../../img/avatar_sam_callwind.png';
-import { Avatar, Button } from "@mui/material";
+import { Avatar, Box, Button, Card, Tab, Tabs } from "@mui/material";
+import PostCard from "../components/postCard/PostCard";
+import UserReelCard from "../components/reels/UserReelCard";
 
 const Profile = () => {
 
     const {id} = useParams();
+    const posts = ['test', 'test', 'test', 'test']
+    const reels = [1, 2, 3, 4, 5];
+    
+    const [value, setValue] = React.useState('posts');
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    }
 
     return (
-        <div className="py-10 w-[70%]">
+        <Card className="py-10 w-[70%]">
 
-            <div className="rounded-md">
+            <div id="topPartProfileBio" className="rounded-md">
 
                 <div className="h-[15rem]">
-                    <img className=" w-full h-full rounded-t-md" alt="mountains" src={mountainImage}/>
+                    <img className=" w-full h-full object-cover rounded-t-md" alt="mountains" src={mountainImage}/>
 
                 </div>
                 <div className="px-5 flex justify-between items-start mt-5 h-[5rem]">
@@ -39,10 +48,34 @@ const Profile = () => {
                         <span>50 followings</span>
 
                     </div>
-
+                    <div>This is my bio</div>
                 </div>
             </div>
-        </div>
+            <Box sx={{ width: '100%', borderBottom: 1, borderColor: "divider" }}>
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="wrapped label tabs example"
+                >
+                  <Tab value="posts"label="posts"/>
+                  <Tab value="reels" label="reels" />
+                  <Tab value="saved" label="saved" />
+                  <Tab value="repost" label="repost" />
+                </Tabs>
+            </Box>
+            <div className="flex justify-center">
+
+                {value === 'posts' ? <div className="space-y-5 w-[70%] mt-5">
+                    {posts.map((element) => <div className="border rounded-md border-slate-100">
+                        <PostCard/>
+                    </div>)}
+
+                </div>: value === 'reels' ? <div className="flex flex-wrap justify-center mt-2 gap-2">
+                    {reels.map((element) => <UserReelCard className=" w-[50%]"/>)}
+                </div> : ("")}
+
+            </div>
+        </Card>
     )
 }
 
