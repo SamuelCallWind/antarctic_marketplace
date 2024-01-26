@@ -11,6 +11,7 @@ const Profile = () => {
     const {id} = useParams();
     const posts = ['test', 'test', 'test', 'test']
     const reels = [1, 2, 3, 4, 5];
+    const savedPosts = [1, 2, 3, 4, 5]
     
     const [value, setValue] = React.useState('posts');
     const handleChange = (event, newValue) => {
@@ -71,8 +72,14 @@ const Profile = () => {
                     </div>)}
 
                 </div>: value === 'reels' ? <div className="flex flex-wrap justify-center mt-2 gap-2">
-                    {reels.map((element) => <UserReelCard className=" w-[50%]"/>)}
-                </div> : ("")}
+                    {reels.map((element) => <UserReelCard/>)}
+                </div> : value === 'saved' ? <div className="space-y-5 w-[70%] mt-5">
+                    {posts.map((element) => <div className="border rounded-md border-slate-100">
+                        <PostCard/>
+                    </div>)}
+                    </div> : (
+                        <div>Reposts</div>
+                    )}
 
             </div>
         </Card>
